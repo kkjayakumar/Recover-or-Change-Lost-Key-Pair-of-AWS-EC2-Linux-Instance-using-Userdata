@@ -1,0 +1,19 @@
+#Recover or Change Lost Key Pair of AWS EC2 Linux Instance using Userdata
+
+
+Content-Type: multipart/mixed; boundary="//"
+MIME-Version: 1.0
+
+--//
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+cloud_final_modules:
+- [users-groups, once]
+users:
+ - name:ec2-user
+   ssh-authorized-keys:
+   - <**Paste the Public key here**>
